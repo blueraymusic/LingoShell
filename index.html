@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LingoShell - Chat with Your Terminal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap">
+    <link rel="icon" type="image/x-icon" href="https://static.vecteezy.com/system/resources/previews/034/098/882/non_2x/link-icon-design-free-png.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0e1117;
+            color: #f0f6fc;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: rgba(14, 17, 23, 0.9);
+            padding: 15px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+            transition: background 0.5s, padding 0.3s;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: #7dd3fc;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .logo:hover {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #7dd3fc;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e40af, #0f172a);
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            color: #7dd3fc;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            color: #94a3b8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-buttons button {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: none; /* Remove default border for buttons */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+
+        .cta-buttons .primary {
+            background-color: #7dd3fc;
+            color: #0e1117;
+        }
+
+        .cta-buttons .primary:hover {
+            background-color: #38bdf8;
+            transform: scale(1.05);
+        }
+
+        .cta-buttons .secondary {
+            border: 2px solid #7dd3fc;
+            color: #7dd3fc;
+            background-color: transparent; /* Make secondary button background transparent */
+        }
+
+        .cta-buttons .secondary:hover {
+            background-color: #1e40af;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .feature-card {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            color: #7dd3fc;
+            margin-bottom: 10px;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background-color: rgba(125, 211, 252, 0.15);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        .bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            left: 20%;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            left: 60%;
+            animation-duration: 18s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            left: 80%;
+            animation-duration: 10s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-200px) translateX(20px);
+            }
+
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+
+        footer {
+            background-color: rgba(14, 17, 23, 0.9);
+            padding: 20px;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        footer a {
+            color: #7dd3fc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #38bdf8;
+        }
+
+        /* Responsive design adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 20px;
+            }
+
+            nav a {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .feature-card {
+                padding: 20px;
+            }
+
+            .cta-buttons button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Download section styles */
+        .description {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin: 20px 0;
+        }
+
+        .download-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-icon {
+            width: 100%; /* Adjust width as needed */
+            max-width: 800px; /* Increase maximum width for a bigger image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Optional: add rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-caption {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #94a3b8;
+        }
+    </style>
+    <style>
+        /* Popup container styles */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .popup-content {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .popup-content h2 {
+            margin-bottom: 15px;
+            color: #38bdf8;
+        }
+
+        .close-btn {
+            cursor: pointer;
+            color: #f0f6fc;
+            font-size: 1.2rem;
+            float: right;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #7dd3fc;
+            color: #0e1117;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+    
+        <a class="logo" href="#">LingoShell</a>
+
+        <div>
+            <a onclick="smoothScroll('#features')">Features</a>
+            <a onclick="smoothScroll('#download')">Download</a>
+            
+            <a href="#contact" id="contact-link">Contact</a>
+            
+            <!-- Popup Container -->
+            <div class="popup" id="popup">
+                <div class="popup-content">
+                    <span class="close-btn" id="close-btn">&times;</span>
+                    <h2>Contact Us</h2>
+                    <form id="contact-form" action="https://formspree.io/f/movqqpnl" method="POST">
+                        <input type="text" class="form-input" name="name" placeholder="Your Name" required>
+                        <input type="email" class="form-input" name="email" placeholder="Your Email" required>
+                        <textarea class="form-input" name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="submit-btn">Send</button>
+                    </form>
+                </div>
+            </div>
+        
+        </div>
+    </nav>
+    
+
+    <div class="hero">
+        <div>
+            <h1>Talk. Execute. Control.</h1>
+            <p>Revolutionize how you interact with your terminal – no commands needed.</p>
+            <div class="cta-buttons">
+                <button class="primary" onclick="smoothScroll('#download')">Download Now</button>
+                <button class="secondary" onclick="smoothScroll('#features')">Learn More</button>
+            </div>
+
+        </div>
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+    </div>
+
+    <section id="features">
+        <h2>Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Text Commands</h3>
+                <p>Write what you need – LingoShell will handle it.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Multi-Shell Compatibility</h3>
+                <p>Works seamlessly with ZSH, Bash, and more.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Intuitive Interface</h3>
+                <p>Navigate your terminal with ease and style.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="download">
+        <h2>Download LingoShell</h2>
+        <p class="description">Get started with a whole new way to interact with your terminal using natural language commands <br> Detailed instructions available on GitHub, to continue, unzip the file then proceed:</p>
+        
+        <div class="download-container">
+            <div class="cta-buttons">
+                
+            <button class="primary" onclick="downloadFile('Installfiles/zip/Install.sh.zip')">MacBook</button>
+            <button class="secondary" onclick="window.location.href='https://github.com/blueraymusic/Combot'">GitHub</button>
+            <button class="primary" onclick="downloadFile('Installfiles/zip/Install.sp1.zip')">Windows</button>
+        </div>
+        </style>
+        <script>
+            function downloadFile(filename) {
+                const a = document.createElement('a');
+                a.href = filename;
+                a.download = filename; // Specify the file name for download
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        </script>
+        <style>
+        /* Code Snippets Styles */
+        #code-snippets {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        pre {
+            background-color: #0e1117;
+            padding: 20px;
+            border-radius: 10px;
+            overflow: auto;
+            color: #94a3b8;
+            font-size: 1rem;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        code {
+            color: #7dd3fc;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+     <section id="code-snippets">
+        <h2>Install Snippets</h2>
+        <p>For Mac:</p>
+        <pre><code>      bash install.sh</code></pre>
+        <p>For Windows:</p>
+        <pre><code>       .\install.ps1</code></pre>
+    </section>
+
+    <section id="Image">
+        <h2>Image</h2>
+            <div class="image-container">
+                <img src="cmd.png" alt="In Action" class="download-icon">
+                <p class="image-caption">LingoShell in Action</p>
+            </div>
+        </div>
+           
+    </section>
+
+  
+
+    <section id="donation">
+
+        <h2>Support LingoShell</h2>
+        <p class="description">Imagine controlling every aspect of your computer—whether running terminal commands, managing files, or adjusting settings—just by typing what you want in natural language. That’s the vision behind LingoShell. We’re building a powerful assistant that makes interacting with your computer easier, smarter, and more intuitive than ever.
+            But bringing this vision to life requires continuous innovation and hard work. With your support, we can push LingoShell beyond its limits and redefine how people interact with their computers.</p>
+        
+        <p class="description">    Your donation will help us: <br>
+            💡 Create new capabilities that allow users to perform tasks across the entire system effortlessly.  <br>
+            🔐 Improve security to ensure safe operations while executing commands or managing files.  <br>
+            🌐 Expand compatibility to work seamlessly with various platforms, tools, and environments.  <br>
+            🛠 Deliver open-source solutions that benefit the broader tech community.  <br>
+        <div class="cta-buttons">
+            <button class="secondary" onclick="revealForm()" >Donate</button>
+        </div>
+
+    </section>
+
+   
+    <footer>
+        <p>&copy; 2024 LingoShell. All rights reserved. | <a onclick="smoothScroll('#features')">Back to Top</a></p>
+    </footer>
+
+    <script>
+        function smoothScroll(target) {
+            const element = document.querySelector(target);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+     <script>
+        // Get the modal and trigger elements
+        const popup = document.getElementById("popup");
+        const contactLink = document.getElementById("contact-link");
+        const closeBtn = document.getElementById("close-btn");
+
+        // Open popup on link click
+        contactLink.onclick = function (event) {
+            event.preventDefault(); // Prevent page reload
+            popup.style.display = "flex"; // Show the popup
+        };
+
+        // Close popup on clicking the close button
+        closeBtn.onclick = function () {
+            popup.style.display = "none"; // Hide the popup
+        };
+
+        // Close popup if clicking outside the content
+        window.onclick = function (event) {
+            if (event.target === popup) {
+                popup.style.display = "none"; // Hide the popup
+            }
+        };
+    </script>
+
+
+</body>
+
+</html>
