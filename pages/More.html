@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn More - LingoShell</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9ecef;
+            color: #343a40;
+            line-height: 1.6;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            margin: 20px 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .content {
+            padding: 40px;
+            max-width: 900px;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #007bff;
+            margin-top: 20px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 30px;
+        }
+
+        .donate-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+
+        .donate-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            flex: 1 1 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: #007bff;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>LingoShell</h1>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="https://github.com/blueraymusic/Combot" class="active">GitHub</a>
+            <a href="../index.html#download">Download</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <h2>🌐 Learn More About LingoShell</h2>
+
+        <h3>What is LingoShell?</h3>
+        <p>LingoShell is a revolutionary <strong>Natural Language Interface (NLI)</strong> that redefines how users interact with their computers. With LingoShell, you can express your needs in everyday language, eliminating the need for complex terminal commands. Whether it's managing files, retrieving system information, or executing applications, LingoShell translates your requests into actions seamlessly.</p>
+
+        <h3>Why Choose LingoShell?</h3>
+        <div class="features">
+            <div class="feature">
+                <h3>Intuitive Experience</h3>
+                <p>Communicate with your computer as naturally as you would with a human.</p>
+            </div>
+            <div class="feature">
+                <h3>Versatile Functionality</h3>
+                <p>Execute a variety of tasks from a single interface.</p>
+            </div>
+            <div class="feature">
+                <h3>Cross-Platform Compatibility</h3>
+                <p>Designed to work on Linux, macOS, and Windows.</p>
+            </div>
+            <div class="feature">
+                <h3>Continuous Learning</h3>
+                <p>LingoShell adapts to your preferences and improves over time.</p>
+            </div>
+        </div>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li><strong>Natural Language Processing</strong>: Accurately understands and executes your commands.</li>
+            <li><strong>Task Automation</strong>: Simplify your workflows by automating repetitive tasks.</li>
+            <li><strong>Error Handling & Suggestions</strong>: Provides helpful feedback and suggestions for improved command clarity.</li>
+            <li><strong>File Management</strong>: Easily manage and organize files without needing to remember complex commands.</li>
+        </ul>
+
+        <h3>How to Get Started</h3>
+        <ol>
+            <li><strong>Download LingoShell</strong>: Visit our home page to find the download link.</li>
+            <li><strong>Install and Run</strong>: Follow the detailed installation instructions provided in our GitHub repository.</li>
+            <li><strong>Start Interacting</strong>: Open your terminal and type your command in plain English.</li>
+        </ol>
+
+        <h3>Join the Community!</h3>
+        <p>We invite you to join the LingoShell community! Share your experiences, provide feedback, and help us improve this innovative tool.</p>
+
+        <h3>Support Us</h3>
+        <p>If you believe in our mission and want to help us continue developing cutting-edge solutions, consider <a href="#donate" class="donate-button">donating here</a>. Your support is invaluable!</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 LingoShell. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
