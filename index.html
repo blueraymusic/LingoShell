@@ -482,7 +482,7 @@
 
   
 
-    <section id="donation" id="contact-link">
+    <section id="donation">
 
         <h2>Support LingoShell</h2>
         <p class="description">Imagine controlling every aspect of your computer—whether running terminal commands, managing files, or adjusting settings—just by typing what you want in natural language. That’s the vision behind LingoShell. We’re building a powerful assistant that makes interacting with your computer easier, smarter, and more intuitive than ever.
@@ -494,9 +494,43 @@
             🌐 Expand compatibility to work seamlessly with various platforms, tools, and environments.  <br>
             🛠 Deliver open-source solutions that benefit the broader tech community.  <br>
         <div class="cta-buttons">
-            <button class="secondary" onclick="revealForm()" >Donate</button>
+            <button class="secondary" id="openPopup" onclick="revealForm()" >Donate</button>
         </div>
 
+        <!-- Popup Container -->
+            <div class="popup" id="popup">
+                <div class="popup-content">
+                    <span class="close-btn" id="close-btn">&times;</span>
+                    <h2>Contact Us</h2>
+                </div>
+            </div>
+        <script>
+    // Get elements by their new IDs
+    const popup = document.getElementById('popup');
+    const openPopupButton = document.getElementById('openPopup');
+    const closePopupButton = document.getElementById('closePopup');
+
+    // Function to show the popup
+    function showPopup() {
+      popup.style.display = 'block'; // Set display to block to show the popup
+    }
+
+    // Function to hide the popup
+    function hidePopup() {
+      popup.style.display = 'none'; // Set display to none to hide the popup
+    }
+
+    // Add event listeners to the open and close buttons
+    openPopupButton.addEventListener('click', showPopup);
+    closePopupButton.addEventListener('click', hidePopup);
+
+    // Optional: Hide popup if the user clicks outside of it
+    window.addEventListener('click', (event) => {
+      if (event.target === popup) {
+        hidePopup();
+      }
+    });
+  </script>
     </section>
 
    
