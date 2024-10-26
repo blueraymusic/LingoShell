@@ -482,7 +482,7 @@
 
   
 
-    <section id="donation">
+    <section id="donation" id="contact-link">
 
         <h2>Support LingoShell</h2>
         <p class="description">Imagine controlling every aspect of your computer—whether running terminal commands, managing files, or adjusting settings—just by typing what you want in natural language. That’s the vision behind LingoShell. We’re building a powerful assistant that makes interacting with your computer easier, smarter, and more intuitive than ever.
@@ -496,80 +496,6 @@
         <div class="cta-buttons">
             <button class="secondary" onclick="revealForm()" >Donate</button>
         </div>
-<style>
-
-    #depositForm {
-      display: none;
-      margin-top: 20px;
-      padding: 25px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      width: 350px;
-      background-color: #fff;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform: scale(0.9);
-      opacity: 0;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    #depositForm.show {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    label {
-      font-size: 16px;
-      font-weight: 400;
-      color: #333;
-    }
-
-    form button {
-      width: 100%;
-      padding: 12px 0;
-      background-color: #28a745;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #218838;
-    }
-
-  </style>
-        <!-- Hidden Deposit Form -->
-          <div id="depositForm">
-            <h2>Deposit via PayPal</h2>
-            <form action="https://www.paypal.com/donate" method="post" target="_blank">
-              <input type="hidden" name="business" value="kiralstore">
-              <input type="hidden" name="currency_code" value="USD">
-        
-              <label for="amount">Deposit Amount (USD):</label><br>
-              <input type="number" id="amount" name="amount" required min="1" step="any" style="width: 100%; padding: 8px; margin-top: 10px;"><br><br>
-        
-              <button type="submit">Deposit with PayPal</button>
-            </form>
-          </div>
-        
-          <script>
-            function revealForm() {
-              const form = document.getElementById('depositForm');
-              form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
-            }
-          </script>
 
     </section>
 
