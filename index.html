@@ -497,6 +497,27 @@
             <button class="secondary" onclick="revealForm()" >Donate</button>
         </div>
 
+        <!-- Hidden Deposit Form -->
+          <div id="depositForm">
+            <h2>Deposit via PayPal</h2>
+            <form action="https://www.paypal.com/donate" method="post" target="_blank">
+              <input type="hidden" name="business" value="kiralstore">
+              <input type="hidden" name="currency_code" value="USD">
+        
+              <label for="amount">Deposit Amount (USD):</label><br>
+              <input type="number" id="amount" name="amount" required min="1" step="any" style="width: 100%; padding: 8px; margin-top: 10px;"><br><br>
+        
+              <button type="submit">Deposit with PayPal</button>
+            </form>
+          </div>
+        
+          <script>
+            function revealForm() {
+              const form = document.getElementById('depositForm');
+              form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
+            }
+          </script>
+
     </section>
 
    
