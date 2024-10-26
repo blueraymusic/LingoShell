@@ -501,16 +501,55 @@
     #depositForm {
       display: none;
       margin-top: 20px;
-      padding: 20px;
+      padding: 25px;
       border: 1px solid #ddd;
-      border-radius: 10px;
-      width: 320px;
-      background-color: white;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      width: 350px;
+      background-color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: scale(0.9);
+      opacity: 0;
       margin: 0 auto;
+      text-align: left;
     }
-  </style>
 
+    #depositForm.show {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+    }
+
+    form button {
+      width: 100%;
+      padding: 12px 0;
+      background-color: #28a745;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+
+  </style>
         <!-- Hidden Deposit Form -->
           <div id="depositForm">
             <h2>Deposit via PayPal</h2>
