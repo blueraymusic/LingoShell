@@ -511,30 +511,7 @@
             element.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
-     <script>
-        // Get the modal and trigger elements
-        const popup = document.getElementById("popup");
-        const contactLink = document.getElementById("contact-link");
-        const closeBtn = document.getElementById("close-btn");
-
-        // Open popup on link click
-        contactLink.onclick = function (event) {
-            event.preventDefault(); // Prevent page reload
-            popup.style.display = "flex"; // Show the popup
-        };
-
-        // Close popup on clicking the close button
-        closeBtn.onclick = function () {
-            popup.style.display = "none"; // Hide the popup
-        };
-
-        // Close popup if clicking outside the content
-        window.onclick = function (event) {
-            if (event.target === popup) {
-                popup.style.display = "none"; // Hide the popup
-            }
-        };
-    </script>
+    
 
 
 </body>
