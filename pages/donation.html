@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support LingoShell - Terminal Assistance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: gradient 5s infinite alternate;
+        }
+
+        @keyframes gradient {
+            to {
+                background-position: 200%;
+            }
+        }
+
+        p {
+            margin: 15px 0 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .donate-btn {
+            background: linear-gradient(90deg, #4caf50, #388e3c);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .donate-card {
+            flex: 1;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .donate-card i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .footer a {
+            color: #8bc34a;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .donate-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Support LingoShell</h1>
+        <p>
+            LingoShell transforms your terminal with natural language capabilities, simplifying complex tasks.  
+            Your contribution ensures continuous development and keeps the project free and accessible for everyone.
+        </p>
+
+        <div class="btn-group">
+            <div class="donate-card">
+                <i class="fab fa-paypal"></i>
+                <button class="donate-btn" onclick="window.open('https://www.paypal.com/donate', '_blank')">
+                    Donate via PayPal
+                </button>
+            </div>
+            <div class="donate-card">
+                <i class="fas fa-coffee"></i>
+                <button class="donate-btn" onclick="window.open('https://buymeacoffee.com/lingoshell', '_blank')">
+                    Buy Me a Coffee
+                </button>
+            </div>
+            <div class="donate-card">
+                <i class="fab fa-github"></i>
+                <button class="donate-btn" onclick="window.open('https://github.com/blueraymusic', '_blank')">
+                    Sponsor on GitHub
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Thank you for supporting LingoShell! <a href="https://github.com/blueraymusic/lingoshell">View on GitHub</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
