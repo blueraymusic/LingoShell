@@ -1,4 +1,4 @@
-# Cmd-bot
+# Combot
 
 # Computer Demo
 ![Image](https://github.com/blueraymusic/Cmd-bot/assets/83096078/cfc199a3-bf06-4b67-a59c-2022d2a19368)
@@ -129,7 +129,7 @@ Since v.0.2, the safety switch setting moved to computer.yaml; the old ~/.comput
 To have computer run commands right away when they come:
 
 Examples:
-# Cmd-bot Examples
+# Combot Examples
 
 Here are a couple of examples of how this utility can be used.
 ```
