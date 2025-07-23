@@ -75,7 +75,7 @@ echo "- Cloning the repository..."
 TARGET_DIR="$HOME"
 
 cd "$TARGET_DIR" || exit
-git clone https://github.com/blueraymusic/Combot.git combot
+git clone https://github.com/blueraymusic/Shellbot.git combot
 
 cd combot || exit
 
